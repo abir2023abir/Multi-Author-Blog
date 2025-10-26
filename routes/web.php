@@ -42,7 +42,6 @@ Route::get('/debug-auth', function() {
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/user/dashboard', [\App\Http\Controllers\User\DashboardController::class, 'index'])->name('user.dashboard');
     Route::get('/writer/dashboard', [\App\Http\Controllers\Writer\DashboardController::class, 'index'])->name('writer.dashboard');
-    Route::get('/admin/dashboard', [\App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('admin.dashboard');
 
     // User Post Routes
     Route::resource('user/posts', \App\Http\Controllers\User\PostController::class)->names([
@@ -60,7 +59,7 @@ Route::get('/admin/dashboard/stats', [\App\Http\Controllers\Admin\DashboardContr
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::patch('/profile/password', [ProfileController::class, 'updatePassword'])->name('password.update');
+    Route::patch('/profile/password', [ProfileController::class, 'updatePassword'])->name('profile.password.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::middleware('role:writer')->prefix('writer')->name('writer.')->group(function () {
@@ -234,9 +233,7 @@ Route::middleware('auth')->group(function () {
         Route::get('preferences', [\App\Http\Controllers\Admin\PreferenceController::class, 'index'])->name('preferences.index');
         Route::post('preferences', [\App\Http\Controllers\Admin\PreferenceController::class, 'update'])->name('preferences.update');
 
-        // Settings
-        Route::get('settings', [\App\Http\Controllers\Admin\SettingController::class, 'index'])->name('settings.index');
-        Route::post('settings', [\App\Http\Controllers\Admin\SettingController::class, 'update'])->name('settings.update');
+        // Settings (removed duplicate - using SettingsController above)
 
         // My Earnings
         Route::get('earnings', [\App\Http\Controllers\Admin\EarningController::class, 'index'])->name('earnings.index');
