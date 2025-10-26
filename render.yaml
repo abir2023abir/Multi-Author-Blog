@@ -4,10 +4,6 @@ services:
     env: docker
     plan: free
     dockerfilePath: ./Dockerfile
-    buildCommand: |
-      composer install
-      php artisan key:generate
-      php artisan migrate --force
     envVars:
       - key: APP_ENV
         value: production
