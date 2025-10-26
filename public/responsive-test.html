@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes, viewport-fit=cover">
+    <title>Responsive Design Test - Multi Author Blog</title>
+
+    <!-- Mobile Web App Meta Tags -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Multi Author Blog">
+    <meta name="application-name" content="Multi Author Blog">
+    <meta name="theme-color" content="#1a1a2e">
+    <meta name="msapplication-TileColor" content="#1a1a2e">
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/hero.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fefefe;
+        }
+
+        .test-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .device-info {
+            background: #1a1a2e;
+            color: white;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .breakpoint-indicator {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .breakpoint {
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        .breakpoint.active {
+            background: #10b981;
+            color: white;
+        }
+
+        .breakpoint.inactive {
+            background: #e5e7eb;
+            color: #6b7280;
+        }
+
+        .test-section {
+            margin-bottom: 3rem;
+            padding: 2rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+        }
+
+        .test-section h2 {
+            margin-top: 0;
+            color: #1a1a2e;
+        }
+
+        .responsive-grid {
+            display: grid;
+            gap: 1rem;
+            grid-template-columns: 1fr;
+        }
+
+        @media (min-width: 640px) {
+            .responsive-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .responsive-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .grid-item {
+            background: #f3f4f6;
+            padding: 1rem;
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        .hero-test {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <div class="device-info">
+            <h1>Responsive Design Test</h1>
+            <p>Current viewport: <span id="viewport-info">Loading...</span></p>
+            <p>Device type: <span id="device-type">Loading...</span></p>
+        </div>
+
+        <div class="breakpoint-indicator">
+            <div class="breakpoint" id="xs">XS: 280px-319px</div>
+            <div class="breakpoint" id="sm">SM: 320px-479px</div>
+            <div class="breakpoint" id="md">MD: 480px-767px</div>
+            <div class="breakpoint" id="lg">LG: 768px-1023px</div>
+            <div class="breakpoint" id="xl">XL: 1024px-1199px</div>
+            <div class="breakpoint" id="2xl">2XL: 1200px-1399px</div>
+            <div class="breakpoint" id="3xl">3XL: 1400px+</div>
+        </div>
+
+        <div class="test-section">
+            <h2>Responsive Grid Test</h2>
+            <div class="responsive-grid">
+                <div class="grid-item">Item 1</div>
+                <div class="grid-item">Item 2</div>
+                <div class="grid-item">Item 3</div>
+                <div class="grid-item">Item 4</div>
+                <div class="grid-item">Item 5</div>
+                <div class="grid-item">Item 6</div>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h2>Typography Test</h2>
+            <div class="text-responsive-xs">Extra Small Text (Responsive)</div>
+            <div class="text-responsive-sm">Small Text (Responsive)</div>
+            <div class="text-responsive-base">Base Text (Responsive)</div>
+            <div class="text-responsive-lg">Large Text (Responsive)</div>
+            <div class="text-responsive-xl">Extra Large Text (Responsive)</div>
+            <div class="text-responsive-2xl">2XL Text (Responsive)</div>
+            <div class="text-responsive-3xl">3XL Text (Responsive)</div>
+        </div>
+
+        <div class="test-section">
+            <h2>Spacing Test</h2>
+            <div class="p-responsive" style="background: #f3f4f6; margin-bottom: 1rem;">
+                Responsive Padding
+            </div>
+            <div class="px-responsive" style="background: #f3f4f6; margin-bottom: 1rem;">
+                Responsive Horizontal Padding
+            </div>
+            <div class="py-responsive" style="background: #f3f4f6; margin-bottom: 1rem;">
+                Responsive Vertical Padding
+            </div>
+        </div>
+
+        <div class="test-section hero-test">
+            <h2>Hero Section Test</h2>
+            <section class="hero-section">
+                <div class="container">
+                    <div class="hero-content">
+                        <div class="text-content">
+                            <h1 class="hero-title">
+                                Far from face<br>
+                                but not from <span class="highlight">heart</span>
+                            </h1>
+                            <p class="hero-description">
+                                Let stay at home and share with everyone the most<br>
+                                beautiful stories in your hometown 🌺
+                            </p>
+                            <button class="cta-button">Getting started</button>
+                        </div>
+
+                        <div class="image-gallery">
+                            <img src="https://images.unsplash.com/photo-1526045612212-70caf35c14df" class="image-card img-1" alt="Camera and photos" />
+                            <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32" class="image-card img-2" alt="Vintage camera" />
+                            <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c" class="image-card img-3" alt="Delicious food" />
+                            <img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946" class="image-card img-4" alt="Beautiful flowers" />
+                            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4" class="image-card img-5" alt="Sunset landscape" />
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="test-section">
+            <h2>Touch Device Test</h2>
+            <button class="cta-button" style="margin-right: 1rem;">Touch Button 1</button>
+            <button class="cta-button" style="margin-right: 1rem;">Touch Button 2</button>
+            <button class="cta-button">Touch Button 3</button>
+        </div>
+    </div>
+
+    <script>
+        function updateDeviceInfo() {
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+            const viewportInfo = document.getElementById('viewport-info');
+            const deviceType = document.getElementById('device-type');
+
+            viewportInfo.textContent = `${width}x${height}`;
+
+            // Determine device type
+            let device = 'Unknown';
+            if (width <= 319) device = 'Extra Small Mobile';
+            else if (width <= 479) device = 'Small Mobile';
+            else if (width <= 767) device = 'Mobile';
+            else if (width <= 1023) device = 'Tablet';
+            else if (width <= 1199) device = 'Small Desktop';
+            else if (width <= 1399) device = 'Desktop';
+            else device = 'Large Desktop';
+
+            deviceType.textContent = device;
+
+            // Update breakpoint indicators
+            const breakpoints = [
+                { id: 'xs', min: 280, max: 319 },
+                { id: 'sm', min: 320, max: 479 },
+                { id: 'md', min: 480, max: 767 },
+                { id: 'lg', min: 768, max: 1023 },
+                { id: 'xl', min: 1024, max: 1199 },
+                { id: '2xl', min: 1200, max: 1399 },
+                { id: '3xl', min: 1400, max: Infinity }
+            ];
+
+            breakpoints.forEach(bp => {
+                const element = document.getElementById(bp.id);
+                if (width >= bp.min && width <= bp.max) {
+                    element.className = 'breakpoint active';
+                } else {
+                    element.className = 'breakpoint inactive';
+                }
+            });
+        }
+
+        // Update on load and resize
+        updateDeviceInfo();
+        window.addEventListener('resize', updateDeviceInfo);
+        window.addEventListener('orientationchange', () => {
+            setTimeout(updateDeviceInfo, 100);
+        });
+    </script>
+</body>
+</html>

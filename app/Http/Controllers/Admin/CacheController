@@ -1,0 +1,22 @@
+<?php
+
+namespace App\Http\Controllers\Admin;
+
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Artisan;
+
+class CacheController extends Controller
+{
+    public function index()
+    {
+        return view('admin.cache.index');
+    }
+
+    public function clear()
+    {
+        Cache::flush();
+        Artisan::call('optimize:clear');
+        return back()->with('status', 'Cache cleared successfully.');
+    }
+}

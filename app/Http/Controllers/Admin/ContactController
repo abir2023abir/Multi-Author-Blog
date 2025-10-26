@@ -1,0 +1,21 @@
+<?php
+
+namespace App\Http\Controllers\Admin;
+
+use App\Http\Controllers\Controller;
+use App\Models\Contact;
+
+class ContactController extends Controller
+{
+    public function index()
+    {
+        $contacts = Contact::latest()->paginate(20);
+        return view('admin.contact.index', compact('contacts'));
+    }
+
+    public function destroy($id)
+    {
+        Contact::findOrFail($id)->delete();
+        return back()->with('status', 'Contact message deleted.');
+    }
+}

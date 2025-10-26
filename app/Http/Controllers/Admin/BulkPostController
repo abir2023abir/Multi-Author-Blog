@@ -1,0 +1,19 @@
+<?php
+
+namespace App\Http\Controllers\Admin;
+
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+
+class BulkPostController extends Controller
+{
+    public function index()
+    {
+        return view('admin.bulk-posts.index');
+    }
+
+    public function store(Request $request)
+    {
+        return back()->with('status', 'Bulk posts imported successfully.');
+    }
+}

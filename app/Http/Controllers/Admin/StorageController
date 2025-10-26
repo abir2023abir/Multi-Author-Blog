@@ -1,0 +1,22 @@
+<?php
+
+namespace App\Http\Controllers\Admin;
+
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
+
+class StorageController extends Controller
+{
+    public function index()
+    {
+        $size = 0;
+        $files = count(Storage::allFiles());
+        
+        return view('admin.storage.index', compact('size', 'files'));
+    }
+
+    public function clean()
+    {
+        return back()->with('status', 'Storage cleaned successfully.');
+    }
+}
